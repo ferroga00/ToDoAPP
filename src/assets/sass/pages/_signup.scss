@@ -1,0 +1,175 @@
+@import '../variables';
+
+.signup-main {
+    margin: 1.7% 3% 3% 3%;
+    font-size: 14px;
+    display: flex;
+
+    &_logo {
+        width: 70%;
+    }
+
+    &_image {
+        width: 120%;
+    }
+
+    &_form {
+        margin-left: 9rem;
+        margin-top: 2rem;
+        width: 80%;
+        border: 1px solid gray;
+
+        &-header {
+            padding-top: 2rem;
+            margin-bottom: -1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4F94C0
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+
+            &_role {
+                display: flex;
+                margin-top: 1rem;
+
+                select {
+                    margin-left: 1rem;
+                    width: 9rem;
+                }
+            }
+
+            &_signup {
+                display: flex;
+                margin-top: 2rem;
+                justify-content: space-between;
+
+                .login {
+                    margin-top: 0.5rem;
+                }
+            }
+
+            input,
+            select {
+                border-radius: 0.25rem;
+                border: 1px solid #ced4da;
+                padding-left: 0.6rem;
+                height: calc(1rem + 0.75rem + 2px);
+            }
+        }
+
+        &-custom-btn {
+            text-decoration: none;
+            background: $--blue-1;
+            color: white;
+            font-weight: light;
+            border: 0;
+            border-radius: .25rem;
+            padding: 5px 10px;
+            margin: .3rem 0 0 -0.2rem;
+
+            &:hover {
+                background-color: $--blue-2;
+                border: 1px solid $--blue-2;
+                border: 0;
+            }
+        }
+
+        &-role-group {
+
+            &_role {
+                border-radius: .25rem;
+                margin-left: 1rem;
+                height: 5vh;
+            }
+        }
+
+        &-login {
+            margin-left: 30%;
+
+            &-text {
+                color: #40ABDE;
+            }
+        }
+
+        &-custom-btn:active,
+        .custom-btn:focus {
+            background-color: #4f94c0;
+        }
+    }
+
+    .error {
+        color: #ff3f80;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        text-align: left;
+    }
+}
+
+@media screen and (height > 769px) {
+
+    .signup-main {
+        margin: 5%;
+        font-size: 16px;
+
+        &_logo {
+            width: 100%;
+            margin-left: 10rem;
+        }
+
+        &_image {
+            width: 160%;
+        }
+
+        &_form {
+            margin-left: 60%;
+            width: 90%;
+            border: 1px solid gray;
+
+            &-header {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #4F94C0
+            }
+
+            input {
+                height: 100%;
+                font-size: 16px;
+            }
+
+            &-custom-btn {
+                background-color: #40ABDE;
+
+                &:hover {
+                    background-color: #4f94c0;
+                }
+            }
+
+            &-role-group {
+
+                &_role {
+                    border-radius: .25rem;
+                    margin-left: 1rem;
+                    height: 4vh;
+                }
+            }
+
+            &-login {
+
+                &-text {
+                    &_login {
+                        color: #40ABDE;
+                    }
+                }
+            }
+
+            &-custom-btn:active,
+            .custom-btn:focus {
+                background-color: #4f94c0;
+            }
+        }
+    }
+}

@@ -1,0 +1,142 @@
+@import '../variables';
+
+.login {
+    &-main {
+        margin-top: 2%;
+        display: flex;
+
+        &_logo {
+            width: 50%;
+
+            &-area {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-left: -5em;
+                margin-right: 3rem;
+
+                &_title {
+                    color: $--orange-1;
+                }
+
+                &_subtitle {
+                    color: $--blue-1;
+                }
+
+                &_slogan {
+                    color: black;
+                }
+            }
+        }
+
+        &_image {
+            width: 80%;
+        }
+
+        &_form {
+            margin-top: 3rem;
+            border: 1px solid gray;
+            text-align: left;
+
+            input {
+                border-radius: 0.25rem;
+                border: 1px solid #ced4da;
+                padding-left: 0.6rem;
+                height: calc(1.5em + 0.75rem + 2px);
+                width: 19rem;
+
+                &:focus {
+                    color: #495057;
+                    background-color: #fff;
+                    border-color: #80bdff;
+                    outline: 0;
+                    box-shadow: 0 0 0 0.1rem rgb(0 123 255 / 25%);
+                }
+            }
+
+            .card-title_text {
+                padding-top: 2rem;
+                padding-left: 1.2rem;
+                margin-bottom: -1rem;
+                font-weight: 550;
+            }
+        }
+
+        &_sign-in-btn {
+            text-decoration: none;
+            background: $--blue-1;
+            color: white;
+            font-weight: light;
+            border: 0;
+            border-radius: .25rem;
+            padding: 10px 20px;
+
+            &:hover {
+                background-color: $--blue-2;
+                border: 1px solid $--blue-2;
+                border: 0;
+            }
+        }
+
+        &_sign-up {
+            color: $--blue-1;
+        }
+
+        .error {
+            color: #ff3f80;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            text-align: left;
+        }
+    }
+}
+
+@media screen and (height > 769px) {
+    .login {
+        &-main {
+            margin-top: 5%;
+
+            &_logo {
+                width: 65%;
+
+                &-area {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    margin-bottom: 5%;
+                }
+            }
+
+            &_image {
+                width: 130%;
+                margin-top: 3rem;
+            }
+
+            &_form {
+                margin-top: 2rem;
+                margin-left: 2rem;
+                width: 100%;
+            }
+
+            &_sign-in-btn {
+                background-color: $--blue-1;
+                border: 1px solid $--blue-1;
+                color: white;
+                border-radius: .25rem;
+
+                &:hover {
+                    background-color: $--blue-2;
+                    border: 1px solid $--blue-2;
+                    color: white;
+                    border-radius: .25rem;
+                }
+            }
+
+            &_sign-up {
+                color: $--blue-1;
+            }
+        }
+    }
+}
