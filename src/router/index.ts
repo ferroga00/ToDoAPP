@@ -24,6 +24,30 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: () => import('../views/HomeView.vue'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/tasks',
+    name: 'Tasks',
+    component: () => import('../views/TasksView.vue'),
+    beforeEnter: authGuard
+  },
+  {
+    path: '/project',
+    name: 'Project',
+    component: () => import('../views/ProjectsView.vue'),
+    beforeEnter: authGuard
+  },
+  {
+    path: '/projects/:projectId',
+    name: 'Projects',
+    component: () => import('../views/ProjectsBoardView.vue'),
+    beforeEnter: authGuard
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('../views/AboutView.vue'),
+    beforeEnter: authGuard
   }
 ]
 

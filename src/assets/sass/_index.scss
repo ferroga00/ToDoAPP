@@ -1,4 +1,10 @@
 @import './pages/welcome';
-@import '_display.scss';
+@import 'base';
 @import './pages/signup';
-@import './pages/navbar'
+@import './pages/navbar';
+@import 'task';
+@import './pages/home';
+@import './pages/tasks';
+@import 'projectBoard';
+@import 'project';
+@import './pages/projects';

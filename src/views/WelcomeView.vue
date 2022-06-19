@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showLogin" class="login-main container">
+    <div v-if="showLogin" class="login-main ">
         <div class="col-xs-8 login-main_logo-area">
             <img class="login-main_logo" src='../assets/images/logo.png' alt="Logo" />
             <h1 class='font-weight-bold login-main_logo-area_title'>Welcome to Task Up</h1>
@@ -7,7 +7,7 @@
             <img class="login-main_image" src='../assets/images/img.png' alt="People Image" />
             <h4 class='font-italic login-main_logo-area_slogan'>Made for everyone</h4>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-4 login-main_form-area">
             <div class="card login-main_form">
                 <div class="card-title">
                     <h4 class="card-title_text">Login</h4>
@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div v-else class="signup-main container">
+    <div v-else class="signup-main ">
         <div class="col">
             <img class="signup-main_logo" src='./../assets/images/logo.png' alt="Logo" />
             <img class="signup-main_image " src='./../assets/images/task-man.jpg' alt="Working" />

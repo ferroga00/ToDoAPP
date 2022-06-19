@@ -1,10 +1,10 @@
 <template>
     <form @submit.prevent="handleLogin" class="login-main_form-inputs">
-        <div class="mb-3">
+        <div class="mb-3 form-group">
             <label class="form-label" for="email">Email</label>
             <input type="text" id="email" placeholder="Introduce your email" required v-model="emailValue" />
         </div>
-        <div class="mb-3">
+        <div class="mb-3 form-group">
             <label class="form-label" for="passw">Password</label>
             <input id="passw" type="password" autocomplete="off" placeholder="Introduce your password" required
                 v-model="passwordValue" />

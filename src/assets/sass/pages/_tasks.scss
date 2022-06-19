@@ -1,0 +1,41 @@
+@import '../variables';
+
+.task-main_title {
+    text-align: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.p-dialog-mask {
+    .p-dialog {
+        width: 30rem;
+        z-index: 1;
+
+        &-header {
+            background-color: $--blue-2;
+            color: white;
+            height: 4rem;
+        }
+
+        &-title {
+            font-size: 1.5rem !important;
+        }
+
+        .p-dialog-content {
+            padding-top: 1.125rem;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1rem;
+            }
+
+            select {
+                height: 2rem;
+            }
+        }
+    }
+}

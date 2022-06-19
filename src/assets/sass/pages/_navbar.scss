@@ -1,20 +1,184 @@
+@import '../variables';
+
 .navbar {
-    padding: 1.3rem;
+    padding: 1.3rem 1.3rem 0 1.3rem;
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    width: 100%;
+    background: $--orange-2;
 
-    &_logout {
+    &_logo {
+        width: 15%;
+        display: flex;
+        margin-top: -1.5rem;
+
+        img {
+            width: 40%;
+        }
+
+        h2 {
+            margin-top: 1.3rem;
+            color: #f214da;
+        }
+    }
+
+    a.link {
+        font-size: 1.3rem;
+        text-decoration: none;
+        color: #444;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #000;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        &:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+    }
+
+    &_links {
+        margin-left: -5rem;
+        margin-top: -1rem;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+        }
+
+        li {
+            margin: 1rem 5rem 0 5rem;
+            list-style: none;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    &_user {
         display: flex;
         flex-direction: row;
+        margin-top: -0.3rem;
 
-        p {
-            margin: 2px auto;
-            font-size: 1rem;
+        .icon {
+            margin-right: 0.7rem;
+            margin-top: 1rem;
+            transform: scale(2);
+        }
+
+        &-username {
+            margin-right: 1.2rem;
+            margin-top: 0.4rem;
+        }
+
+        &-logout {
+            margin-top: -0.5rem;
+            margin-right: 2rem;
+            border: none;
+            background: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1281px) {
+    .navbar {
+        padding: 1rem 1.3rem 0 1.3rem;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        background: $--orange-2;
+
+        &_logo {
+            width: 10%;
+            display: flex;
+            margin-top: -1.5rem;
+
+            img {
+                width: 40%;
+                height: 40%;
+            }
+        }
+
+        a.link {
+            font-size: 1.3rem;
+            text-decoration: none;
             color: #444;
+            position: relative;
 
+            &:before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: #000;
+                visibility: hidden;
+                transform: scaleX(0);
+                transition: all 0.3s ease-in-out;
+            }
 
+            &:hover:before {
+                visibility: visible;
+                transform: scaleX(1);
+            }
+        }
+
+        &_links {
+            margin-left: -5rem;
+            margin-top: -1rem;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+            }
+
+            li {
+                margin: 1rem 5rem 0 5rem;
+                list-style: none;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        &_user {
+            display: flex;
+            flex-direction: row;
+            margin-top: -0.3rem;
+
+            .icon {
+                margin-right: 1.2rem;
+                margin-top: 1rem;
+                padding-left: 1rem;
+                transform: scale(2);
+            }
+
+            &-username {
+                margin-right: 1.2rem;
+                margin-top: 0.4rem;
+            }
+
+            &-logout {
+                margin-top: 0rem;
+                margin-right: 2rem;
+                border: none;
+                background: none;
+            }
         }
     }
 }

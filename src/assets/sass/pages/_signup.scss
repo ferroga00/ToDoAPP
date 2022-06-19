@@ -6,22 +6,21 @@
     display: flex;
 
     &_logo {
-        width: 70%;
-    }
-
-    &_image {
-        width: 120%;
+        margin-left: 15rem;
+        margin-top: 3rem;
+        width: 50%;
     }
 
     &_form {
-        margin-left: 9rem;
-        margin-top: 2rem;
-        width: 80%;
+        margin-left: 4rem;
+        margin-top: 10rem;
+        width: 90%;
         border: 1px solid gray;
 
         &-header {
             padding-top: 2rem;
-            margin-bottom: -1rem;
+            padding-left: 2rem;
+            margin-bottom: -0.3rem;
             font-size: 1.5rem;
             font-weight: bold;
             color: #4F94C0
@@ -31,10 +30,12 @@
             display: flex;
             flex-direction: column;
             text-align: left;
+            padding-left: 1rem;
 
             &_role {
                 display: flex;
                 margin-top: 1rem;
+                padding-left: 1rem;
 
                 select {
                     margin-left: 1rem;
@@ -48,7 +49,7 @@
                 justify-content: space-between;
 
                 .login {
-                    margin-top: 0.5rem;
+                    margin-top: 0.7rem;
                 }
             }
 
@@ -69,7 +70,7 @@
             border: 0;
             border-radius: .25rem;
             padding: 5px 10px;
-            margin: .3rem 0 0 -0.2rem;
+            margin: .3rem 0rem 0 1rem;
 
             &:hover {
                 background-color: $--blue-2;
@@ -109,23 +110,26 @@
     }
 }
 
-@media screen and (height > 769px) {
+
+@media screen and (max-width: 1500px) {
 
     .signup-main {
-        margin: 5%;
         font-size: 16px;
 
+
         &_logo {
-            width: 100%;
-            margin-left: 10rem;
+            width: 60%;
+            margin-left: 7rem;
         }
 
         &_image {
-            width: 160%;
+            margin-left: 3rem;
+            width: 95%;
         }
 
         &_form {
-            margin-left: 60%;
+            margin-left: 2rem;
+            margin-top: 0;
             width: 90%;
             border: 1px solid gray;
 

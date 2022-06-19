@@ -1,0 +1,145 @@
+.task {
+    text-align: left;
+    margin-top: 1rem;
+
+    .p-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+
+        &-header {
+            height: 2.5rem;
+
+            input:disabled {
+                border: none;
+            }
+
+        }
+
+        &-icons {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+        }
+
+        &-content {
+            padding-bottom: 0;
+            padding-right: 0;
+        }
+    }
+
+    &-prio-high {
+        .p-panel-header {
+            background-color: #fa5550;
+            color: white;
+
+            button {
+                span {
+                    color: white;
+                }
+
+                &:hover {
+                    background: none !important;
+                    transform: scale(1.2) !important;
+                }
+
+                &:focus {
+                    box-shadow: none !important;
+                }
+            }
+        }
+    }
+
+    &-prio-med {
+        .p-panel-header {
+            background-color: #ffa500;
+            color: white;
+
+            button {
+                span {
+                    color: white;
+                }
+
+                &:hover {
+                    background: none !important;
+                    transform: scale(1.2) !important;
+                }
+
+                &:focus {
+                    box-shadow: none !important;
+                }
+            }
+        }
+    }
+
+    &-prio-low {
+        .p-panel-header {
+            background-color: #87DD47;
+            color: white;
+
+            button {
+                span {
+                    color: white;
+                }
+
+                &:hover {
+                    background: none !important;
+                    transform: scale(1.2) !important;
+                }
+
+                &:focus {
+                    box-shadow: none !important;
+                }
+            }
+        }
+    }
+
+    &-body {
+
+        .p-disabled,
+        .p-component:disabled {
+            opacity: 1 !important;
+        }
+
+        &_title {
+            height: 2rem;
+            background: none;
+            color: white;
+            opacity: 1 !important;
+        }
+
+        .disabledTextArea {
+            border: none;
+        }
+
+        .disabledInputText {
+            border: 1px solid white !important;
+            text-decoration: underline;
+            border: none;
+        }
+
+        input:disabled {
+            border: none;
+        }
+
+        &_deadline {
+            margin-left: 91%;
+            width: 5.3rem;
+
+            input {
+                font-size: 0.8rem;
+                color: #AFA8A2;
+            }
+
+            input:enabled {
+                color: #000;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+}
