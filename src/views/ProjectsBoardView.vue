@@ -76,7 +76,6 @@ const onClickAdd = () => {
         docs.forEach((doc: any) => {
             if(doc.id === addedId){
                 const { errorGetCollection, documents } = getCollection('projects');
-
                 watch(documents, (doc) => {
                     doc.forEach((d: any) => {
                         projects.push(d);
@@ -92,14 +91,11 @@ const onClickAdd = () => {
             }
         });
     });
-    display.value = false;
+
 };
 
 const completeEditDoc = async (doc: any) => {
     await editDoc(doc);
-    if(!error){
-        return;
-    }
 }
 
 const projectId = route.params.projectId as string;
