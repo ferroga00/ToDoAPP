@@ -13,7 +13,10 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "cypress",
+      "@types/jest",
+      "@types/mocha"
     ],
     "paths": {
       "@/*": [
@@ -32,8 +35,9 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "src/firebase/config.js"  ],
+    "tests/**/*.tsx",
+    "src/firebase/config.js"
+  ],
   "exclude": [
     "node_modules"
   ]

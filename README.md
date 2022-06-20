@@ -1,5 +1,9 @@
 # to_do-app
 
+## Done by José Antonio Santacruz Gallego y Fernando Rodríguez Gallego
+
+### Project for Web System Development
+
 ## Project setup
 ```
 npm install
@@ -17,3 +21,4 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
