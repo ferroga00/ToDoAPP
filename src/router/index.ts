@@ -13,6 +13,20 @@ const authGuard = (to: any, from: any, next: any) => {
   }
 }
 
+const adminAuthGuard = (to: any, from: any, next: any) => {
+  let user = projectAuth.currentUser;
+  const emailDomain = user?.email?.split('@')[1];
+  if (emailDomain === 'todoapp.com') {
+    next();
+  }
+  else {
+    next({
+      name: 'Welcome'
+    })
+  }
+
+
+}
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -48,6 +62,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'About',
     component: () => import('../views/AboutView.vue'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('../views/AdminView.vue'),
+    beforeEnter: [authGuard, adminAuthGuard]
   }
 ]
 

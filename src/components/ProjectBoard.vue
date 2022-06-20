@@ -11,19 +11,19 @@
      <div class="column-title_area">
       <p class="column-title">{{col}}</p>
         <div class="column-options">
-          <i class="fa-solid fa-plus" @click="addTaskProject(col)"></i>
-          <i class="fa-solid fa-ellipsis"></i>
+          <i class="fa-solid fa-plus" @click="handleTaskProject(col, props.projectId)"></i>
         </div>
       </div>
 
     <div 
-      v-for="item in getList(col)" 
+      v-for="item in getList(col).value" 
       :key="item" 
       class="drag-el column-body_area"
       draggable="true"
       @dragstart="startDrag($event, item)"
     >
-      {{ item }}
+      {{ item.title }}
+      <i class="fa-solid fa-trash" @click="handleRemoveTasks(item)"></i>
     </div>
   </div>
   </div>
@@ -36,8 +36,8 @@ import { ref, watch } from 'vue';
 import { EColumn } from '@/common/enums/columns.enum';
 import useCollection from '@/composables/useCollection'
 import getCollection from '@/composables/getCollection'
-import { doc } from '@firebase/firestore';
 
+const { addDoc, removeDoc, editDoc, error } = useCollection('projects');
 
 
 const props = defineProps({
@@ -67,7 +67,7 @@ watch(docs, (doc) => {
 
 const confirm = useConfirm();
 
-const tasks = ref();
+const tasks = ref([] as any[]);
 
 const getList = (col: any) => {
   tasks.value = [];
@@ -76,16 +76,15 @@ const getList = (col: any) => {
       if(proj.id === props.projectId)
         proj.tasks.forEach((projectTask: any) => {
           if(projectTask.column === col){
-            
               taskList.forEach((task) => {
               if(task.id === projectTask.task){
-                tasks.value.push(task.title);
+                tasks.value.push(task);
               }
             })
         }
       })
     })
-  return tasks.value;
+  return tasks;
 }
 
 const startDrag = (event: any, item: any) => {
@@ -96,22 +95,38 @@ const startDrag = (event: any, item: any) => {
 
 const onDrop = (event: any, col: any) => {
   const itemID = event.dataTransfer.getData('itemID');
-  const item = tasks.value.find((item: any) => item.id == itemID);
+  const item = taskList.find((item: any) => item.id == itemID);
+  projects.value.forEach((proj) => {
+    proj = JSON.parse(JSON.stringify(proj))
+    proj.tasks.forEach((task:any) => {
+      if(task.task === item.id){
+        task.column = col;
+        completeEditDoc(proj);
+      }
+    })
+  });
   item.column = col;
 }
 
+const completeEditDoc = async (doc: any) => {
+    await editDoc(doc);
+}
+
+const handleRemoveTasks = (task:any) => {
+  projects.value.forEach((proj) => {
+    proj = JSON.parse(JSON.stringify(proj))
+      if(proj.id === props.projectId)
+        emit('removeTaskProject', task, proj);
+  });
+};
 
 
-const addTaskProject = (col: any) => {
-  emit('addTaskProject', col, props.projectId);
+const handleTaskProject = (col: any, proj:any) => {
+  emit('addTaskProject', col, proj);
 };
 
 const emit = defineEmits([
-  'addTaskProject'
+  'addTaskProject', 'removeTaskProject'
 ])
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

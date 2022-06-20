@@ -19,7 +19,8 @@
                 <button class="btn btn-primary" @click="saveProject">Save</button>
             </div>
         </Dialog>
-        <Project />
+        <Project
+         @remove-project="onRemoveProject"/>
     </div>
 </template>
 
@@ -56,7 +57,7 @@ const descriptionValue = ref('');
 const defaultProject = ref({
     title : '',
     description : '',
-    user: '',
+    user: [''],
     shared: false,
     tasks: []
 });
@@ -82,10 +83,11 @@ const saveProject = async () => {
             title: titleValue.value,
             description: descriptionValue.value,
             createdAt: new Date(),
-            user: user.value?.uid,
+            user: [user.value?.uid, user.value?.displayName],
             shared: false,
             tasks: []
         };
+        console.log(project);
         display.value = false;
         await addDoc(project);
         if(!error.value){
@@ -106,6 +108,18 @@ const saveProject = async () => {
             severity: 'error',
             summary: 'Error',
             detail: 'Please fill all the fields',
+            life: 2000
+        });
+    }
+};
+
+const onRemoveProject = async (project: any) => {
+    await removeDoc(project);
+    if(!error.value){
+        toast.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Project removed successfully',
             life: 2000
         });
     }

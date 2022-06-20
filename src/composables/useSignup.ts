@@ -8,7 +8,7 @@ const signup = async (payload: any) => {
 
     try {
 
-        const res = await projectAuth.createUserWithEmailAndPassword(payload.email, payload.password);
+        const res = await (await projectAuth.createUserWithEmailAndPassword(payload.email, payload.password));
 
         if (!res) {
             throw new Error("Firebase: Something went wrong. ()");

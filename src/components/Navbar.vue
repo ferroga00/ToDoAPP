@@ -9,6 +9,7 @@
             <li><a class="pointer link" @click="onClickTasks">Tasks</a></li>
             <li><a class="pointer link" @click="onClickProjects">Project</a></li>
             <li><a class="pointer link" @click="onClickAbout">About</a></li>
+            <li v-if="user.email?.split('@')[1] === 'todoapp.com'"><a class="pointer link" @click="onClickAdmin">Admin</a></li>
            </ul>
         </div>
         <div class="navbar_user"> 
@@ -51,6 +52,9 @@ const onClickAbout = () => {
     router.push({ name: 'About'});
 }
 
+const onClickAdmin = () => {
+    router.push({ name: 'Admin'});
+}
 
 const handleLogout = async () => {
     await logout();
@@ -59,7 +63,6 @@ const handleLogout = async () => {
         console.log('user logged out');
     }
 }
-
 </script>
 
 

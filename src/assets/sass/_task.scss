@@ -14,7 +14,7 @@
             height: 2.5rem;
 
             input {
-                width: 75%
+                width: fit-content;
             }
 
             input:disabled {
@@ -114,6 +114,7 @@
             background: none;
             color: white;
             opacity: 1 !important;
+            margin-left: -45rem;
         }
 
         .disabledTextArea {

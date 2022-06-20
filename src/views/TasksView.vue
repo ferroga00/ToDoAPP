@@ -40,10 +40,15 @@
                 <i class="fa-solid fa-plus"></i>
                 Add Task
             </button>
-           </div>
-        <Task 
+            <p>
+                <i class="fa-solid fa-check-to-slot" v-tooltip.bottom="'Show completed tasks'" @click="handleShowCompleteClick"></i>
+            </p>
+        </div>
+        <Task
+            :showComplete = showComplete
             @remove-task="removeTask"
             @complete-edit-task="completeEditTask"
+            @on-complete-task="completeTask"
         />
     </div>
 </template>
@@ -76,6 +81,8 @@ const titleValue = ref('');
 const descriptionValue = ref('');
 const deadlineValue = ref();
 const priorityValue = ref(ETaskPriority.LOW);
+
+const showComplete = ref(false);
 
 
 const defaultTask = ref({
@@ -114,7 +121,7 @@ const saveTask = async  () => {
             createdAt: new Date(),
             deadline : deadlineValue.value,
             priority : priorityValue.value,
-            user: user.value?.uid,
+            user: [user.value?.uid, user.value?.displayName],
             completed: false,
         };
         display.value = false;
@@ -166,28 +173,60 @@ const completeEditTask = async (task: ITask) => {
     }
 }
 
+const completeTask = async (task: ITask) => {
+    task.completed = true;
+    await editDoc(task);
+    if(!error.value){
+        toast.add({
+                severity: 'info',
+                summary: 'Task complete!',
+                life: 2000
+            });
+    }
+    return;
+}
+
+const handleShowCompleteClick = () => {
+    showComplete.value = !showComplete.value;
+}
+
 </script>
 
 <style lang="scss">
     .buttons {
         display: flex;
-        justify-content: right;
+        justify-content: flex-end;
+        margin-left: 30%;
     
         button {
             margin: 1rem 0.6rem 0 0.6rem ;
         }
 
+        p {
+            width: 3rem;
+            margin: 1rem;
+            i{
+                margin-top: 1rem;
+                width: 1.5rem;
+                transform: scale(2);
+                
+                &:hover {
+                    transform: scale(2.1);
+                    cursor: pointer;
+                }
+            }
+        }
+
         &_addTask {
-            border: 1px solid #74F768;
-            background: #74F768;
+            border: 1px solid #10bf00;
+            background: #10bf00;
             border-radius: 5px;
             color: white;
             padding: 0 1rem;
 
             &:hover{
             border: 1px solid #30d322;
-
-                background: #30d322;
+            background: #30d322;
                 color: white;
             }
         }
